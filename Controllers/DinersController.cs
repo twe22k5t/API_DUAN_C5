@@ -47,6 +47,18 @@ namespace API_DUAN_C5.Controllers
             await _context.SaveChangesAsync();
             return NoContent();
         }
+        //thêm đoạn này vô
+
+        [HttpGet("GetByUserId/{userId}")]
+        public async Task<ActionResult<Diner>> GetByUserId(int userId)
+        {
+            var diner = await _context.Diners.FirstOrDefaultAsync(d => d.UserId == userId);
+            if (diner == null)
+            {
+                return NotFound();
+            }
+            return Ok(diner);
+        }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDiner(int id)

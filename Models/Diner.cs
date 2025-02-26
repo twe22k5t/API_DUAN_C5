@@ -11,6 +11,11 @@ namespace API_DUAN_C5.Models
         public string Image1 { get; set; }
         public string Image2 { get; set; }
         public string PhoneNumber { get; set; }
+         
+        public string TaxCode { get; set; }
+
+        // Thời gian tạo
+        public DateTime CreateAt { get; set; } = DateTime.Now;
 
         // Khóa ngoại đến User (1-n)
         public int UserId { get; set; }
